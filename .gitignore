@@ -1,0 +1,6 @@
+# Python bytecode caches at any depth.
+__pycache__/
+*.pyc
+
+# Downloaded market data and generated simulation samples.
+/data/

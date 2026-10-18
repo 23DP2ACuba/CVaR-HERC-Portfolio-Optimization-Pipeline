@@ -1,5 +1,6 @@
 from model.cvarmodel.GARCHEVTCOPULA import GARCHEVTCOPULA
 from model.DataStore import ModelParams
+from model.paths import get_data_dir
 import pandas as pd
 import numpy as np
 import os
@@ -32,7 +33,7 @@ class CVaR(GARCHEVTCOPULA):
     start_s = pd.Timestamp(self.start).strftime("%Y-%m-%d")
     end_s   = pd.Timestamp(self.end).strftime("%Y-%m-%d")
 
-    return (
+    return get_data_dir() / (
       f"simulation_{start_s}_{end_s}"
       f"_steps{self.model_p.n_steps}"
       f"_sobol2p{self.model_p.sobol_pow}"

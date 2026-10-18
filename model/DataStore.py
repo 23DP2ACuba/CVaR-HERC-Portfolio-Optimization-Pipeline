@@ -1,4 +1,5 @@
 import os
+from model.paths import get_data_dir
 import yfinance as yf
 import pandas as pd
 import numpy as np
@@ -88,7 +89,7 @@ class DataStore:
     tickers_clean = list(set(universe))
 
     self.benchmark_ticker = benchmark
-    df_path = f"portfolio_{start}_{end}.parquet"
+    df_path = get_data_dir() / f"portfolio_{start}_{end}.parquet"
 
     if not os.path.exists(df_path):
       if benchmark not in tickers_clean:
